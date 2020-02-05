@@ -95,3 +95,13 @@ $("#sig-three-best").text(sigThreeBestSeg);
 $("#biggest-bad-time").text(biggestBadPbTime);
 $("#biggest-bad-seg").text(biggestBadPbSeg);
 $("#biggest-bad-best").text(biggestBadBestSeg);
+
+function addUpSegs(columnName) {
+    if (columnName === "best"){
+        let introToAdd = $("#pb-table tr:nth-child(2) td:last-child").text();
+
+        console.log(introToAdd);
+    }
+}
+
+addUpSegs("best");
