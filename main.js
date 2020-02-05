@@ -102,10 +102,19 @@ function addUpSegs(columnName) {
         for(let i = 0; i < 14; i++){
             numbersToAdd[i] = $("#pb-table tr:nth-child(" + (i + 2) + ") td:last-child").text();
         }
-        
-        numbersToAdd.forEach(function (num) {
-            console.log(num);
-        })
+
+        stringToTime(numbersToAdd[0])
+    }
+}
+
+function stringToTime(timeString){
+    let length = timeString.length;
+
+    if(length === 7){
+        let total = parseFloat(timeString.substring(0, 1));
+        let testOne = parseFloat(timeString.substring(2, 4));
+        let testTwo = parseFloat(timeString.substring(5));
+
     }
 }
 
