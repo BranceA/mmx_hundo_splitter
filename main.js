@@ -19,7 +19,7 @@ let dilloPbTime = "18:53.40";
 let dilloPbSeg = "2:43.77";
 let dilloBestSeg = null;
 let octoPbTime = "21:37.17";
-let octoPbSeg = "2:43.77";
+let octoPbSeg = "2:45.72";
 let octoBestSeg = "2:43.77";
 let lizardPbTime = "24:35.17";
 let lizardPbSeg = "2:58.00";
@@ -103,15 +103,15 @@ function addUpSegs(columnName) {
         for(let i = 0; i < 14; i++){
             numbersToAdd[i] = $("#pb-table tr:nth-child(" + (i + 2) + ") td:last-child").text();
             arrayOfArrays.push(stringToTime(numbersToAdd[i]));
-            addUpArrays(arrayOfArrays);
         }
     } else if (columnName === "pb"){
         for(let i = 0; i < 14; i++){
             numbersToAdd[i] = $("#pb-table tr:nth-child(" + (i + 2) + ") td:nth-child(3)").text();
             arrayOfArrays.push(stringToTime(numbersToAdd[i]));
-            addUpArrays(arrayOfArrays);
         }
     }
+    console.log(arrayOfArrays);
+    console.log(addUpArrays(arrayOfArrays));
 }
 
 function stringToTime(timeString){
@@ -138,7 +138,25 @@ function addUpArrays(arraysToAddUp){
         tempTotal[2] += oneArray[2];
     });
 
-    console.log(tempTotal);
+    tempTotal[1] += Math.floor((tempTotal[2] / 100));
+    tempTotal[2] = tempTotal[2] % 100;
+    tempTotal[0] += Math.floor((tempTotal[1] / 60));
+    tempTotal[1] = tempTotal[1] % 60;
+
+    tempTotal[0] = "" + tempTotal[0];
+    if (tempTotal[1] < 10){
+        tempTotal = "0" + tempTotal [1];
+    } else {
+        tempTotal[1] = "" + tempTotal[1];
+    }
+
+    if(tempTotal[2] < 10){
+        tempTotal[2] = "0" + tempTotal[2];
+    } else {
+        tempTotal[2] = "" + tempTotal[2];
+    }
+
+    return tempTotal[0] + ":" + tempTotal[1] + "." + tempTotal[2];
 }
 
 addUpSegs("pb");
