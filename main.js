@@ -101,21 +101,30 @@ function addUpSegs(columnName) {
     if (columnName === "best"){
         for(let i = 0; i < 14; i++){
             numbersToAdd[i] = $("#pb-table tr:nth-child(" + (i + 2) + ") td:last-child").text();
+            console.log(stringToTime(numbersToAdd[i]));
         }
-
-        stringToTime(numbersToAdd[0])
+    } else if (columnName === "pb"){
+        for(let i = 0; i < 14; i++){
+            numbersToAdd[i] = $("#pb-table tr:nth-child(" + (i + 2) + ") td:nth-child(3)").text();
+            console.log(stringToTime(numbersToAdd[i]));
+        }
     }
 }
 
 function stringToTime(timeString){
     let length = timeString.length;
-
+    let minutesSecondsMs = new Array(3);
     if(length === 7){
-        let total = parseFloat(timeString.substring(0, 1));
-        let testOne = parseFloat(timeString.substring(2, 4));
-        let testTwo = parseFloat(timeString.substring(5));
-
+        minutesSecondsMs[0] = parseFloat(timeString.substring(0, 1));
+        minutesSecondsMs[1] = parseFloat(timeString.substring(2, 4));
+        minutesSecondsMs[2] = parseFloat(timeString.substring(5));
+    } else if(length === 8) {
+        minutesSecondsMs[0] = parseFloat(timeString.substring(0, 2));
+        minutesSecondsMs[1] = parseFloat(timeString.substring(3, 5));
+        minutesSecondsMs[2] = parseFloat(timeString.substring(6));
     }
+
+    return minutesSecondsMs;
 }
 
-addUpSegs("best");
+addUpSegs("pb");
