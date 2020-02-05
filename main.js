@@ -20,7 +20,7 @@ let dilloPbSeg = "2:43.77";
 let dilloBestSeg = null;
 let octoPbTime = "21:37.17";
 let octoPbSeg = "2:45.72";
-let octoBestSeg = "2:43.77";
+let octoBestSeg = "2:45.72";
 let lizardPbTime = "24:35.17";
 let lizardPbSeg = "2:58.00";
 let lizardBestSeg = "2:58.00";
@@ -159,4 +159,21 @@ function addUpArrays(arraysToAddUp){
     return tempTotal[0] + ":" + tempTotal[1] + "." + tempTotal[2];
 }
 
-addUpSegs("pb");
+let startTime = 0;
+let stageCount = -1;
+
+$(window).keypress(function(e) {
+    if (e.which === 32) {
+        switch (stageCount) {
+            case -1:
+                startTime = Date.now();
+                stageCount++;
+                break;
+            case 0:
+                let newIntroSeg = (Date.now() - startTime);
+                stageCount++;
+                console.log(newIntroSeg);
+
+        }
+    }
+});
