@@ -97,10 +97,15 @@ $("#biggest-bad-seg").text(biggestBadPbSeg);
 $("#biggest-bad-best").text(biggestBadBestSeg);
 
 function addUpSegs(columnName) {
+    let numbersToAdd = new Array(14);
     if (columnName === "best"){
-        let introToAdd = $("#pb-table tr:nth-child(2) td:last-child").text();
-
-        console.log(introToAdd);
+        for(let i = 0; i < 14; i++){
+            numbersToAdd[i] = $("#pb-table tr:nth-child(" + (i + 2) + ") td:last-child").text();
+        }
+        
+        numbersToAdd.forEach(function (num) {
+            console.log(num);
+        })
     }
 }
 
