@@ -161,6 +161,19 @@ function addUpArrays(arraysToAddUp){
 
 let startTime = 0;
 let stageCount = -1;
+let newIntroSeg = 0;
+let newPenguinSeg = 0;
+let newEagleSeg = 0;
+let newNoumanderSeg = 0;
+let newBoomerSeg = 0;
+let newMandrillSeg = 0;
+let newDilloSeg = 0;
+let newOctoSeg = 0;
+let newLizardSeg = 0;
+let newSigOneSeg = 0;
+let newSigTwoSeg = 0;
+let newSigThreeSeg = 0;
+let newBiggestBadSeg = 0;
 
 $(window).keypress(function(e) {
     if (e.which === 32) {
@@ -170,10 +183,20 @@ $(window).keypress(function(e) {
                 stageCount++;
                 break;
             case 0:
-                let newIntroSeg = (Date.now() - startTime);
+                newIntroSeg = (Date.now() - startTime);
                 stageCount++;
                 console.log(newIntroSeg);
-
+                break;
+            case 1:
+                newPenguinSeg = (Date.now() - newIntroSeg);
+                stageCount++;
+                console.log(newPenguinSeg);
+                break;
+            case 2:
+                newEagleSeg = (Date.now() - newPenguinSeg);
+                stageCount++;
+                console.log(newEagleSeg);
+                break;
         }
     }
 });
