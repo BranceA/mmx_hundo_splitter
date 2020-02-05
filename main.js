@@ -98,15 +98,18 @@ $("#biggest-bad-best").text(biggestBadBestSeg);
 
 function addUpSegs(columnName) {
     let numbersToAdd = new Array(14);
+    let arrayOfArrays = new Array(14);
     if (columnName === "best"){
         for(let i = 0; i < 14; i++){
             numbersToAdd[i] = $("#pb-table tr:nth-child(" + (i + 2) + ") td:last-child").text();
-            console.log(stringToTime(numbersToAdd[i]));
+            arrayOfArrays.push(stringToTime(numbersToAdd[i]));
+            addUpArrays(arrayOfArrays);
         }
     } else if (columnName === "pb"){
         for(let i = 0; i < 14; i++){
             numbersToAdd[i] = $("#pb-table tr:nth-child(" + (i + 2) + ") td:nth-child(3)").text();
-            console.log(stringToTime(numbersToAdd[i]));
+            arrayOfArrays.push(stringToTime(numbersToAdd[i]));
+            addUpArrays(arrayOfArrays);
         }
     }
 }
@@ -125,6 +128,17 @@ function stringToTime(timeString){
     }
 
     return minutesSecondsMs;
+}
+
+function addUpArrays(arraysToAddUp){
+    let tempTotal = [0, 0, 0];
+    arraysToAddUp.forEach(function (oneArray) {
+        tempTotal[0] += oneArray[0];
+        tempTotal[1] += oneArray[1];
+        tempTotal[2] += oneArray[2];
+    });
+
+    console.log(tempTotal);
 }
 
 addUpSegs("pb");
