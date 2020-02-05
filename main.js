@@ -39,3 +39,7 @@ let sigThreeBestSeg = "3:06.65";
 let biggestBadPbTime = "38:44.13";
 let biggestBadPbSeg = "1:31.63";
 let biggestBadBestSeg = "1:31.63";
+
+$("#intro-time").text(introPbTime);
+$("#intro-seg").text(introPbTime);
+$("#intro-best").text(introBestSeg);
