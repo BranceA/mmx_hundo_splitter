@@ -162,18 +162,33 @@ function addUpArrays(arraysToAddUp){
 let startTime = 0;
 let stageCount = -1;
 let newIntroSeg = 0;
+let newIntroTime = 0;
 let newPenguinSeg = 0;
+let newPenguinTime = 0;
 let newEagleSeg = 0;
+let newEagleTime = 0;
 let newNoumanderSeg = 0;
+let newNoumanderTime = 0;
 let newBoomerSeg = 0;
+let newBoomerTime = 0;
 let newMandrillSeg = 0;
+let newMandrillTime = 0;
 let newDilloSeg = 0;
+let newDilloTime = 0;
 let newOctoSeg = 0;
+let newOctoTime = 0;
 let newLizardSeg = 0;
+let newLizardTime = 0;
+let newRevisitSeg = 0;
+let newRevisitTime = 0;
 let newSigOneSeg = 0;
+let newSigOneTime = 0;
 let newSigTwoSeg = 0;
+let newSigTwoTime = 0;
 let newSigThreeSeg = 0;
+let newSigThreeTime = 0;
 let newBiggestBadSeg = 0;
+let newFinishTime = 0;
 
 $(window).keypress(function(e) {
     if (e.which === 32) {
@@ -183,19 +198,89 @@ $(window).keypress(function(e) {
                 stageCount++;
                 break;
             case 0:
+                newIntroTime = Date.now();
                 newIntroSeg = (Date.now() - startTime);
                 stageCount++;
                 console.log(newIntroSeg);
                 break;
             case 1:
-                newPenguinSeg = (Date.now() - newIntroSeg);
+                newPenguinSeg = (Date.now() - newIntroTime);
+                newPenguinTime = Date.now();
                 stageCount++;
                 console.log(newPenguinSeg);
                 break;
             case 2:
-                newEagleSeg = (Date.now() - newPenguinSeg);
+                newEagleSeg = (Date.now() - newPenguinTime);
+                newEagleTime = Date.now();
                 stageCount++;
                 console.log(newEagleSeg);
+                break;
+            case 3:
+                newNoumanderSeg = (Date.now() - newEagleTime);
+                newNoumanderTime = Date.now();
+                stageCount++;
+                console.log(newNoumanderSeg);
+                break;
+            case 4:
+                newBoomerSeg = (Date.now() - newNoumanderTime);
+                newBoomerTime = Date.now();
+                stageCount++;
+                console.log(newBoomerSeg);
+                break;
+            case 5:
+                newMandrillSeg = (Date.now() - newBoomerTime);
+                newMandrillTime = Date.now();
+                stageCount++;
+                console.log(newMandrillSeg);
+                break;
+            case 6:
+                newDilloSeg = (Date.now() - newMandrillTime);
+                newDilloTime = Date.now();
+                stageCount++;
+                console.log(newDilloSeg);
+                break;
+            case 7:
+                newOctoSeg = (Date.now() - newDilloTime);
+                newOctoTime = Date.now();
+                stageCount++;
+                console.log(newOctoSeg);
+                break;
+            case 8:
+                newLizardSeg = (Date.now() - newOctoTime);
+                newLizardTime = Date.now();
+                stageCount++;
+                console.log(newLizardSeg);
+                break;
+            case 9:
+                newRevisitSeg = (Date.now() - newLizardTime);
+                newRevisitTime = Date.now();
+                stageCount++;
+                console.log(newRevisitSeg);
+                break;
+            case 10:
+                newSigOneSeg = (Date.now() - newRevisitTime);
+                newSigOneTime = Date.now();
+                stageCount++;
+                console.log(newSigOneSeg);
+                break;
+            case 11:
+                newSigTwoSeg = (Date.now() - newSigOneTime);
+                newSigTwoTime = Date.now();
+                stageCount++;
+                console.log(newSigTwoSeg);
+                break;
+            case 12:
+                newSigThreeSeg = (Date.now() - newSigTwoTime);
+                newSigThreeTime = Date.now();
+                stageCount++;
+                console.log(newSigThreeSeg);
+                break;
+            case 13:
+                newBiggestBadSeg = (Date.now() - newSigThreeTime);
+                newFinishTime = Date.now() - startTime;
+                stageCount = 0;
+                console.log(newBiggestBadSeg);
+                console.log(newFinishTime);
                 break;
         }
     }
